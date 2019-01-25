@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UTQLResponse name="videostreaming_ndi_receiver_extcam" xsi:schemaLocation="http://ar.in.tum.de/ubitrack/utql http://ar.in.tum.de/files/ubitrack/utql/utql_types.xsd" xmlns="http://ar.in.tum.de/ubitrack/utql" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Pattern name="VideostreamNDISource" id="pattern_1">
+        <Output>
+            <Node name="A" id="node_1">
+                <GuiPos x="401" y="350"/>
+            </Node>
+            <Node name="B" id="node_2">
+                <GuiPos x="521" y="550"/>
+            </Node>
+            <Edge name="Output" source="A" destination="B">
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="type" value="Image" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="mode" value="push" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            </Edge>
+        </Output>
+        <DataflowConfiguration>
+            <UbitrackLib class="VideostreamNDISource"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="sinkShortName" value="OFFICEWS (ExtCam)" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="sinkSession" value="default" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="trackman-guipos" value="0 0" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+        </DataflowConfiguration>
+    </Pattern>
+    <Pattern name="BackgroundImage" id="pattern_2">
+        <Input>
+            <Node name="ImagePlane" id="node_2">
+                <GuiPos x="521" y="550"/>
+            </Node>
+            <Node name="Camera" id="node_1">
+                <GuiPos x="401" y="350"/>
+            </Node>
+            <Edge name="Image1" source="Camera" destination="ImagePlane" pattern-ref="pattern_1" edge-ref="Output">
+                <GuiLandmark x="437" y="589"/>
+                <GuiLabelPos x="457" y="622"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="type" value="Image" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="mode" value="push" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            </Edge>
+        </Input>
+        <DataflowConfiguration>
+            <UbitrackLib class="BackgroundImage"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="useTexture" value="true" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="trackman-guipos" value="0 170" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+        </DataflowConfiguration>
+    </Pattern>
+</UTQLResponse>
