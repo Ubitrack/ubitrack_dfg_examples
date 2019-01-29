@@ -35,6 +35,7 @@ Ubuntu Linux 18.04
   $ sudo apt-key add /var/cuda-repo-10-0-local-10.0.130-410.48/7fa2af80.pub
   $ sudo apt-get update
   $ sudo apt-get install cuda
+  $ sudo apt-get install nvidia-opencl-dev
 
   carefully read the "UEFI" related dialogs and register the MOK in bios if asked
   make sure your installation works (glxinfo / nvidia-settings, cuda examples)
