@@ -61,9 +61,11 @@ Ubuntu Linux 18.04
   $ conan remote add bincrafters "https://api.bintray.com/conan/bincrafters/public-conan"
   $ conan remote add camposs "https://conan.campar.in.tum.de/api/conan/conan-camposs"
   $ conan remote add ubitrack "https://conan.campar.in.tum.de/api/conan/conan-ubitrack"
+  $ conan remote add vendor "https://conan.campar.in.tum.de/api/conan/conan-vendor"
 
-  change c++ default for stdlib in ~/.conan/profiles/default:
-  compiler.libcxx=libstdc++11
+- change c++ default for stdlib in ~/.conan/profiles/default:
+
+  $ conan profile update settings.compiler.libcxx=libstdc++11 default
 
 
 - To build an Ubuntu 1.3 release:
