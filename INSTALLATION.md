@@ -19,6 +19,7 @@ Ubuntu Linux 18.04
   $ sudo apt-get install libusb-1.0-0-dev
   $ sudo apt-get install libgtk2.0-dev pkg-config
   $ sudo apt-get install libomp-dev
+  $ sudo apt-get install systemtap-sdt-dev
 
 
 - Install Graphics Drivers (Nvidia Howto: https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux)
