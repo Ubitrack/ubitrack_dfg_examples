@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UTQLRequest name="extra_zed_recording" xsi:schemaLocation="http://ar.in.tum.de/ubitrack/utql http://ar.in.tum.de/files/ubitrack/utql/utql_types.xsd" xmlns="http://ar.in.tum.de/ubitrack/utql" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Pattern name="BackgroundImage">
+        <Input>
+            <Node name="ImagePlane">
+                <GuiPos x="257" y="628"/>
+                <Predicate>id=='node_4'</Predicate>
+            </Node>
+            <Node name="Camera">
+                <GuiPos x="147" y="388"/>
+                <Predicate>id=='node_3'</Predicate>
+            </Node>
+            <Edge name="Image1" source="Camera" destination="ImagePlane">
+                <GuiLandmark x="689" y="264"/>
+                <GuiLabelPos x="709" y="297"/>
+                <Predicate>trackman-pattern-ref=='pattern_4'&amp;&amp;trackman-edge-ref=='ImageOutput'&amp;&amp;type=='Image'&amp;&amp;mode=='push'</Predicate>
+            </Edge>
+        </Input>
+        <DataflowConfiguration>
+            <UbitrackLib class="BackgroundImage"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="trackman-guipos" value="230 170" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="useTexture" value="true" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="trackman-pattern-id" value="pattern_2" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+        </DataflowConfiguration>
+    </Pattern>
+    <Pattern name="ZEDCameraCalibration">
+        <Output>
+            <Node name="ImagePlaneRight">
+                <GuiPos x="777" y="678"/>
+            </Node>
+            <Node name="ImagePlaneLeft" id="node_4" displayName="Image Plane Left">
+                <GuiPos x="257" y="628"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="trackman-supernode" value="true" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            </Node>
+            <Node name="Camera" id="node_3" displayName="Left Camera">
+                <GuiPos x="147" y="388"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="zedSerialNumber" value="0" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="cameraFrameRate" value="0" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="zedCameraResolution" value="RESOLUTION_HD2K" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="zedDepthMode" value="DEPTH_MODE_ULTRA" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="zedSensingMode" value="SENSING_MODE_STANDARD" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="zedRecordingEnabled" value="true" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="zedRecordingSVOFilename" value="zedcapture.svo" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="zedRecordingTimestampFilename" value="zedcapture_ts.txt" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="zedSvoCompressionMode" value="LOSSY" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="zedPlaybackEnabled" value="false" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="zedPlaybackSVOFilename" value="zedcapture.svo" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="zedPlaybackTimestampFilename" value="zedcapture_ts.txt" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="trackman-supernode" value="true" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            </Node>
+            <Node name="CameraRight">
+                <GuiPos x="627" y="378"/>
+            </Node>
+            <Edge name="LeftCameraModel" source="Camera" destination="ImagePlaneLeft">
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="type" value="Intrinsics" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="mode" value="pull" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            </Edge>
+            <Edge name="RightIntrinsics" source="CameraRight" destination="ImagePlaneRight">
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="type" value="3x3Matrix" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="mode" value="pull" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            </Edge>
+            <Edge name="RightCameraModel" source="CameraRight" destination="ImagePlaneRight">
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="type" value="Intrinsics" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="mode" value="pull" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            </Edge>
+            <Edge name="LeftToRightTransform" source="Camera" destination="CameraRight">
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="type" value="6D" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="mode" value="pull" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            </Edge>
+            <Edge name="LeftIntrinsics" source="Camera" destination="ImagePlaneLeft">
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="type" value="3x3Matrix" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="mode" value="pull" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            </Edge>
+        </Output>
+        <DataflowConfiguration>
+            <UbitrackLib class="ZEDCameraCalibration"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="trackman-guipos" value="0 0" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="trackman-pattern-id" value="pattern_3" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+        </DataflowConfiguration>
+    </Pattern>
+    <Pattern name="ZEDVideoStream">
+        <Output>
+            <Node name="ImagePlane" id="node_4" displayName="Image Plane Left">
+                <GuiPos x="257" y="628"/>
+            </Node>
+            <Node name="Camera" id="node_3" displayName="Left Camera">
+                <GuiPos x="147" y="388"/>
+            </Node>
+            <Edge name="ImageOutput" source="Camera" destination="ImagePlane">
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="zedSensorType" value="VIDEO" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="zedVideoSource" value="VIEW_LEFT" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="type" value="Image" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="mode" value="push" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            </Edge>
+        </Output>
+        <DataflowConfiguration>
+            <UbitrackLib class="ZEDVideoStream"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="trackman-guipos" value="230 0" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="uploadImageOnGPU" value="false" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="trackman-pattern-id" value="pattern_4" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+        </DataflowConfiguration>
+    </Pattern>
+    <Pattern name="ZEDRecorder">
+        <Output>
+            <Node name="Camera" id="node_3" displayName="Left Camera">
+                <GuiPos x="147" y="388"/>
+            </Node>
+        </Output>
+        <DataflowConfiguration>
+            <UbitrackLib class="ZEDRecorder"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="trackman-guipos" value="460 0" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            <Attribute xsi:type="utql:PrimitiveAttributeType" name="trackman-pattern-id" value="pattern_5" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+        </DataflowConfiguration>
+    </Pattern>
+</UTQLRequest>

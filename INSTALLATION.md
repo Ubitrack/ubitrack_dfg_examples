@@ -17,7 +17,9 @@ Ubuntu Linux 18.04
   $ sudo apt-get install opencl-headers
   $ sudo apt-get install ocl-icd-opencl-dev
   $ sudo apt-get install libusb-1.0-0-dev
-  $ sudo apt-get install libgtk-3-dev
+  $ sudo apt-get install libgtk2.0-dev pkg-config
+  $ sudo apt-get install libomp-dev
+  $ sudo apt-get install systemtap-sdt-dev
 
 
 - Install Graphics Drivers (Nvidia Howto: https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux)
@@ -34,6 +36,7 @@ Ubuntu Linux 18.04
   $ sudo apt-key add /var/cuda-repo-10-0-local-10.0.130-410.48/7fa2af80.pub
   $ sudo apt-get update
   $ sudo apt-get install cuda
+  $ sudo apt-get install nvidia-opencl-dev
 
   carefully read the "UEFI" related dialogs and register the MOK in bios if asked
   make sure your installation works (glxinfo / nvidia-settings, cuda examples)
@@ -59,9 +62,11 @@ Ubuntu Linux 18.04
   $ conan remote add bincrafters "https://api.bintray.com/conan/bincrafters/public-conan"
   $ conan remote add camposs "https://conan.campar.in.tum.de/api/conan/conan-camposs"
   $ conan remote add ubitrack "https://conan.campar.in.tum.de/api/conan/conan-ubitrack"
+  $ conan remote add vendor "https://conan.campar.in.tum.de/api/conan/conan-vendor"
 
-  change c++ default for stdlib in ~/.conan/profiles/default:
-  compiler.libcxx=libstdc++11
+- change c++ default for stdlib in ~/.conan/profiles/default:
+
+  $ conan profile update settings.compiler.libcxx=libstdc++11 default
 
 
 - To build an Ubuntu 1.3 release:
