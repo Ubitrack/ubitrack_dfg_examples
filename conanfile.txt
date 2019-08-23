@@ -8,6 +8,7 @@ ubitrack:with_default_camera=True
 ubitrack:with_camera_flycapture=False
 ubitrack:with_haptic_calibration=True
 ubitrack:with_camera_realsense=True
+ubitrack:with_camera_kinect4azure=True
 ubitrack:with_device_videostream=True
 ubitrack:with_trackman=True
 ubitrack:with_python=True
