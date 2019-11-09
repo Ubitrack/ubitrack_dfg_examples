@@ -70,6 +70,16 @@
                 <Predicate>trackman-pattern-ref=='pattern_5'&amp;&amp;trackman-edge-ref=='Output'&amp;&amp;type=='Image'&amp;&amp;mode=='pull'</Predicate>
             </Edge>
         </Input>
+        <Output>
+            <Node name="ZMQSocket">
+                <GuiPos x="240" y="40"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="socketUrl" value="tcp://127.0.0.1:9977" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="bindTo" value="true" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="fixTimestamp" value="false" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="verbose" value="true" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="serialization_method" value="msgpack" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            </Node>
+        </Output>
         <DataflowConfiguration>
             <UbitrackLib class="ZMQPullSinkImage"/>
             <Attribute xsi:type="utql:PrimitiveAttributeType" name="trackman-guipos" value="0 340" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>

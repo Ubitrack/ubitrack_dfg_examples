@@ -27,6 +27,14 @@
             <Node name="B" displayName="Imageplane" id="node_2">
                 <GuiPos x="297" y="293"/>
             </Node>
+            <Node name="ZMQSocket">
+                <GuiPos x="240" y="40"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="socketUrl" value="tcp://127.0.0.1:9978" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="bindTo" value="false" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="fixTimestamp" value="false" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="verbose" value="true" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+                <Attribute xsi:type="utql:PrimitiveAttributeType" name="serialization_method" value="msgpack" xmlns:utql="http://ar.in.tum.de/ubitrack/utql"/>
+            </Node>
             <Edge name="Output" source="A" destination="B">
                 <GuiLandmark x="267" y="185"/>
                 <GuiLabelPos x="287" y="218"/>
